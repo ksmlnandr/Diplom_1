@@ -6,7 +6,7 @@ import praktikum.Bun;
 
 public class GetNameTest {
 
-    private String name = "Булочка";
+    private final String name = "Булочка";
     private Bun bun = new Bun(name, 12);
 
     @Test
