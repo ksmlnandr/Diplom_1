@@ -6,11 +6,12 @@ import praktikum.Bun;
 
 public class GetNameTest {
 
-    private Bun bun = new Bun("Булочка", 12);
+    private String name = "Булочка"
+    private Bun bun = new Bun(name, 12);
 
     @Test
     public void getNameReturnsBunName(){
         String actual = bun.getName();
-        Assert.assertEquals("Булочка", actual);
+        Assert.assertEquals(name, actual);
     }
 }
