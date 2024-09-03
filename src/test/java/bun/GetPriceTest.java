@@ -15,6 +15,6 @@ public class GetPriceTest {
     @Test
     public void getPriceReturnsBunPrice() {
         float actual = bun.getPrice();
-        Assert.assertEquals(bunPrice, actual,0);
+        Assert.assertEquals(bunPrice, actual,0.0);
     }
 }
