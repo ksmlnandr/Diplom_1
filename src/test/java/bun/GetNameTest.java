@@ -10,7 +10,7 @@ public class GetNameTest {
 
     @Test
     public void getNameReturnsBunName(){
-        bun.getName();
-        Assert.assertEquals("Булочка", bun.getName());
+        String actual = bun.getName();
+        Assert.assertEquals("Булочка", actual);
     }
 }
