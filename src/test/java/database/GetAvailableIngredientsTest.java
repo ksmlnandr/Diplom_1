@@ -15,37 +15,29 @@ public class GetAvailableIngredientsTest {
     private Database database = new Database();
 
     private final int arrayCount;
-    private final IngredientType expectedType;
-    private final String expectedName;
-    private final float expectedPrice;
+    private final Ingredient expected;
 
-    public GetAvailableIngredientsTest(int arrayCount, IngredientType expectedType, String expectedName, float expectedPrice) {
+    public GetAvailableIngredientsTest(int arrayCount, Ingredient expected) {
         this.arrayCount = arrayCount;
-        this.expectedType = expectedType;
-        this.expectedName = expectedName;
-        this.expectedPrice = expectedPrice;
+        this.expected = expected;
     }
 
     @Parameterized.Parameters
     public static Object[][] setParameters() {
         return new Object[][] {
-                {0, IngredientType.SAUCE, "hot sauce", 100},
-                {1, IngredientType.SAUCE, "sour cream", 200},
-                {2, IngredientType.SAUCE, "chili sauce", 300},
-                {3, IngredientType.FILLING, "cutlet", 100},
-                {4, IngredientType.FILLING, "dinosaur", 200},
-                {5, IngredientType.FILLING, "sausage", 300}
+                {0, new Ingredient(IngredientType.SAUCE, "hot sauce", 100)},
+                {1, new Ingredient(IngredientType.SAUCE, "sour cream", 200)},
+                {2, new Ingredient(IngredientType.SAUCE, "chili sauce", 300)},
+                {3, new Ingredient(IngredientType.FILLING, "cutlet", 100)},
+                {4, new Ingredient(IngredientType.FILLING, "dinosaur", 200)},
+                {5, new Ingredient(IngredientType.FILLING, "sausage", 300)}
         };
     }
 
     @Test
     public void availableIngredientsReturnsIngredientsData() {
-        List<Ingredient> ingrs = database.availableIngredients();
-        IngredientType actualType = ingrs.get(arrayCount).getType();
-        String actualName = ingrs.get(arrayCount).getName();
-        float actualPrice = ingrs.get(arrayCount).getPrice();
-        Assert.assertEquals(expectedType, actualType);
-        Assert.assertEquals(expectedName,actualName);
-        Assert.assertEquals(expectedPrice, actualPrice, 0.0);
+        List<Ingredient> ingredients = database.availableIngredients();
+        Ingredient actual = ingredients.get(arrayCount);
+        Assert.assertEquals(expected, actual);
     }
 }

@@ -9,6 +9,7 @@ import praktikum.Database;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class GetAvailableBunsTest {
@@ -16,31 +17,28 @@ public class GetAvailableBunsTest {
     private Database database = new Database();
 
     private final int arrayCount;
-    private final String expectedName;
-    private final float expectedPrice;
 
-    public GetAvailableBunsTest(int arrayCount, String expectedName, float expectedPrice) {
+    private final Bun expected;
+
+    public GetAvailableBunsTest(int arrayCount, Bun expected) {
         this.arrayCount = arrayCount;
-        this.expectedName = expectedName;
-        this.expectedPrice = expectedPrice;
+        this.expected = expected;
     }
 
 
     @Parameterized.Parameters
     public static Object[][] setParameters() {
         return new Object[][]{
-                {0, "black bun", 100},
-                {1, "white bun", 200},
-                {2, "red bun", 300}
+                {0, new Bun("black bun", 100)},
+                {1, new Bun( "white bun", 200)},
+                {2, new Bun("red bun", 300)}
         };
     }
 
     @Test
     public void availableBunsReturnsBunsData() {
         List<Bun> buns = database.availableBuns();
-        String actualName = buns.get(arrayCount).getName();
-        float actualPrice = buns.get(arrayCount).getPrice();
-        assertEquals(expectedName, actualName);
-        assertEquals(expectedPrice, actualPrice, 0.0);
+        Bun actual = buns.get(arrayCount);
+        assertEquals(expected, actual);
     }
 }
