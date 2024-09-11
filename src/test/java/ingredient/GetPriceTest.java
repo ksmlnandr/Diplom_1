@@ -16,7 +16,7 @@ public class GetPriceTest {
     public void getPriceReturnsIngredientPrice() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Что-то вкусненькое", ingredientPrice);
         float actual = ingredient.getPrice();
-        Assert.assertEquals(ingredientPrice, actual, 0.0);
+        Assert.assertEquals(ingredientPrice, actual, 0.0F);
     }
 
 }
