@@ -37,7 +37,7 @@ public class GetReceiptTest {
     }
 
     @Test
-    public void getReceiptTest() {
+    public void getReceiptReturnsBurgerVisualWithTotalPrice() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);

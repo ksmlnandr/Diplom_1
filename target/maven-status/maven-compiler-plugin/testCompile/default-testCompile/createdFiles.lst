@@ -1,0 +1,10 @@
+ingredient/GetTypeTest.class
+ingredient/GetNameTest.class
+database/GetAvailableIngredientsTest.class
+bun/GetPriceTest.class
+database/GetAvailableBunsTest.class
+burger/GetPriceTest.class
+ingredient/GetPriceTest.class
+bun/GetNameTest.class
+burger/GetReceiptTest.class
+burger/AddIngredientTest.class

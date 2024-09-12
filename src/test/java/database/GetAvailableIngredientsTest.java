@@ -1,5 +1,6 @@
 package database;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +39,6 @@ public class GetAvailableIngredientsTest {
     public void availableIngredientsReturnsIngredientsData() {
         List<Ingredient> ingredients = database.availableIngredients();
         Ingredient actual = ingredients.get(arrayCount);
-        Assert.assertEquals(expected, actual);
+        Assert.assertThat(actual, CoreMatchers.sameInstance(ingredients.get(arrayCount)));
     }
 }

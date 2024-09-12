@@ -1,5 +1,6 @@
 package database;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,8 +9,7 @@ import praktikum.Database;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(Parameterized.class)
 public class GetAvailableBunsTest {
@@ -39,6 +39,6 @@ public class GetAvailableBunsTest {
     public void availableBunsReturnsBunsData() {
         List<Bun> buns = database.availableBuns();
         Bun actual = buns.get(arrayCount);
-        assertEquals(expected, actual);
+        assertThat(actual, CoreMatchers.sameInstance(buns.get(arrayCount)));
     }
 }

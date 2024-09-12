@@ -41,7 +41,7 @@ public class GetPriceTest {
     }
 
     @Test
-    public void getPriceWithTwoIngredientsTest() {
+    public void getPriceCountsSumOfBunsAndTwoIngredients() {
         float expectedPrice = bun.getPrice() * 2 + ingredient1.getPrice() + ingredient2.getPrice();
         assertEquals(expectedPrice, burger.getPrice(), 0.0F);
     }
