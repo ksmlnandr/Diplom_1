@@ -2,6 +2,7 @@ ingredient/GetTypeTest.class
 ingredient/GetNameTest.class
 database/GetAvailableIngredientsTest.class
 bun/GetPriceTest.class
+recources/constants/Constants.class
 database/GetAvailableBunsTest.class
 burger/GetPriceTest.class
 ingredient/GetPriceTest.class
