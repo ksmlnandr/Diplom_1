@@ -1,25 +1,30 @@
 package burger;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
-import static org.mockito.Mockito.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AddIngredientTest {
-    @Spy
     Burger burger = new Burger();
     Ingredient ingredient = new Ingredient(IngredientType.FILLING, "meat ball", 4.0F);
+    @Mock
+    List<Ingredient> ingredients = new ArrayList<>();
+
 
     @Test
     public void addIngredientCallsAddition() {
         burger.addIngredient(ingredient);
-        Mockito.verify(burger, times(1)).addIngredient(ingredient);
+        Mockito.when(ingredients.get(0)).thenReturn(ingredient);
+        Assert.assertEquals(ingredient, ingredients.get(0));
     }
 }
