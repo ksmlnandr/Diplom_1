@@ -6,18 +6,17 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
-import recources.constants.Constants;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static recources.constants.Constants.DELTA;
 
 public class GetPriceTest {
     private Bun bun;
     private Ingredient ingredient1;
     private Ingredient ingredient2;
     private Burger burger;
-    private Constants constants = new Constants();
 
     @Before
     public void setUp() {
@@ -45,6 +44,6 @@ public class GetPriceTest {
     @Test
     public void getPriceCountsSumOfBunsAndTwoIngredients() {
         float expectedPrice = bun.getPrice() * 2 + ingredient1.getPrice() + ingredient2.getPrice();
-        assertEquals(expectedPrice, burger.getPrice(), constants.getDELTA());
+        assertEquals(expectedPrice, burger.getPrice(), DELTA);
     }
 }
